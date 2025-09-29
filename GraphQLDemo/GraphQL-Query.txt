@@ -1,0 +1,14 @@
+query GetUserHavingId1And2($user1Id:Int , $user2Id:Int){ # Operation and Variable nname
+  User1: userById(id: $user1Id){ # Alises
+    ...IdNameAndEmail
+  }
+  User2: userById(id: $user2Id){ 
+    ...IdNameAndEmail
+  }
+}
+
+fragment IdNameAndEmail on User{ # Fragmentation
+  id
+  name
+  UserEmail: email
+}
